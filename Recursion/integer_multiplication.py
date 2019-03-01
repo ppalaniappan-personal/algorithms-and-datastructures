@@ -6,9 +6,8 @@ Description:
 This is an algorithm that performs multiplication of 2 integers of size n using recursion.
 
 Solution:
-The algorithm recursively divides the input numbers by half, until we are left with single digits.
-This is the base case for recursion.
-Once we hit the base case, we perform regular multiplication of the single digits
+The algorithm recursively divides the input numbers by half, until we are left with single digits. This is the base
+case for recursion. Once we hit the base case, we perform regular multiplication of the single digits
 '''
 
 
@@ -27,16 +26,17 @@ def multiply(x, y, n):
     x * y   = ((10^n/2 * a) + b) * ((10^n/2 * c) + d)
             = (10^n * ac) + (10^n/2 * (ad + bc)) + bd
     '''
+
     if n == 1:
         return x * y
-    a = int(x / pow(10, n/2))
-    b = int(x - (a * pow(10, n/2)))
-    c = int(y / pow(10, n/2))
-    d = int(y - (c * pow(10, n/2)))
-    ac = multiply(a, c, n/2)
-    bd = multiply(b, d, n/2)
-    bc_plus_ad = multiply(a + b, c + d, n/2) - ac - bd
-    mul_result = (pow(10, n) * ac) + (pow(10, n/2) * bc_plus_ad) + bd
+    a = x // pow(10, n//2)
+    b = x - (a * pow(10, n//2))
+    c = y // pow(10, n//2)
+    d = y - (c * pow(10, n//2))
+    ac = multiply(a, c, n//2)
+    bd = multiply(b, d, n//2)
+    bc_plus_ad = multiply(a + b, c + d, n//2) - ac - bd
+    mul_result = (pow(10, n) * ac) + (pow(10, n//2) * bc_plus_ad) + bd
     return mul_result
 
 
