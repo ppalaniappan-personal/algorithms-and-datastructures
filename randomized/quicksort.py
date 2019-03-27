@@ -15,12 +15,12 @@ Now, we recurse on the left and right parts to finally get a sorted array
 
 psuedocode:
     quicksort(A, start_index, end_index):
-        if (n==1) return n
+        if (n==1) return 
         pivot_index = choose pivot(A, start_index, end_index)
-        A, new_pivot_index = partition(A, pivot_index, end_index - start_index)
+        new_pivot_index = partition(A, pivot_index, end_index - start_index)
         quicksort(A, start_index, new_pivot_index - 1)
         quicksort(A, new_pivot_index + 1, end_index)
-        return A
+        return
 '''
 
 import random
